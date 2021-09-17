@@ -1,5 +1,5 @@
 '''
-class ModelAPI - trains models, evaluates them, keeps the best one;
+class ModelTrain - trains models, evaluates them, keeps the best one;
 aux methods for saving/loading
 '''
 import numpy as np
