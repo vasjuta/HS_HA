@@ -7,5 +7,5 @@
 3. Use API
    curl -XPOST localhost:4040/hello
 
-   curl -XPOST localhost:4040/classify_artist -d '{"painting": "https://uploads7.wikiart.org/images/jose-clemente-orozco/modern-migration-of-the-spirit-the-epic-of-american-civilization-1934.jpg!Large.jpg"}'
+   curl -XPOST localhost:4040/predict_genres -d '{"plot": "Four friends enter the woods at night where they are killed by an evil sociopath"}'
 
