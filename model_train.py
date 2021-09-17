@@ -23,13 +23,17 @@ import joblib
 import preprocessor
 import utilities
 
+# path and name to save 
 MODEL_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'models')
 MODEL_FILENAME = 'finalized_model.sav'
-logging.basicConfig(filename='classification_report.log', encoding='utf-8', level=logging.DEBUG)
+
+# logistic regression params
 MIN_DF = 2
 MAX_DF = 0.8
 MAX_FEATURES = 5000
 
+# logger init
+logging.basicConfig(filename='classification_report.log', encoding='utf-8', level=logging.DEBUG)
 
 class ModelTrain:
 
@@ -74,7 +78,8 @@ class ModelTrain:
         labels = data[target_column]
         multilabel_binarizer.fit(labels)
         y = multilabel_binarizer.transform(labels)
-
+        
+        # 80/20 train/validation split
         xtrain, xval, ytrain, yval = train_test_split(X, y, test_size=0.2, random_state=42)
 
         # vectorize text, both train and validation
@@ -89,7 +94,7 @@ class ModelTrain:
 
         classifiers = {"lr": lr, "nb": nb_clf, "sgd": sgd}
 
-        # iterate over algorithms and evaluate
+        # iterate over algorithms and calculate metrics
         for key, value in classifiers.items():
 
             clf = OneVsRestClassifier(value)
@@ -110,7 +115,8 @@ class ModelTrain:
             f1 = f1_score(yval, y_pred, average="micro")
             loss = hamming_loss(yval, y_pred)
             score = utilities.hamming_score(yval, y_pred)
-
+            
+            # log the results
             logging.info(f'classifier: {key}')
             logging.info(f'loss = {loss}\n'
                          f'f1={f1}\n'
@@ -118,12 +124,13 @@ class ModelTrain:
 
             # try probabilistic predictions with threshold from 0.1 to 0.6 with step of 0.1
 
-            # probabilities are not availble for hinge loss which we use in SGD
+            # probabilities are not availble for hinge loss which we use in SGD, skip it
             if key == 'sgd':
                 continue
 
             y_pred_prob = clf.predict_proba(xval_tfidf)
-
+            
+            # try thresholds from 0.1 to 0.6 with 0.1 step
             for t in np.arange(0.1, 0.7, 0.1):
                 y_pred_new = (y_pred_prob >= t).astype(int)
                 f1 = f1_score(yval, y_pred_new, average="micro")
