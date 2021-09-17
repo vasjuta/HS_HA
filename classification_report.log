@@ -1,0 +1,84 @@
+INFO:root:Start train at 2021-09-17 20:31:03.578024
+INFO:root:End train at 2021-09-17 20:32:42.251377
+INFO:root:classifier: lr
+INFO:root:loss = 0.0088634507617358
+f1=0.3013060046616597
+hamming_score=0.2181151286289131
+
+INFO:root:
+new threshold: 0.1
+INFO:root:f1=0.4186841633968838
+hamming_score=0.2705253507142905
+
+INFO:root:
+new threshold: 0.2
+INFO:root:f1=0.45547895675649613
+hamming_score=0.3162870564875577
+
+INFO:root:
+new threshold: 0.30000000000000004
+INFO:root:f1=0.4287679653426222
+hamming_score=0.3069542473677812
+
+INFO:root:
+new threshold: 0.4
+INFO:root:f1=0.37266374669831825
+hamming_score=0.27034892564967755
+
+INFO:root:
+new threshold: 0.5
+INFO:root:f1=0.3013060046616597
+hamming_score=0.2181151286289131
+
+INFO:root:
+new threshold: 0.6
+INFO:root:f1=0.225640613703912
+hamming_score=0.16378082235225092
+
+INFO:root:Start train at 2021-09-17 20:32:47.947563
+INFO:root:End train at 2021-09-17 20:32:53.864605
+INFO:root:classifier: nb
+INFO:root:loss = 0.00912534144349638
+f1=0.2369608728071897
+hamming_score=0.17879250982007874
+
+INFO:root:
+new threshold: 0.1
+INFO:root:f1=0.4041719140784363
+hamming_score=0.2619005223261607
+
+INFO:root:
+new threshold: 0.2
+INFO:root:f1=0.4207019568752951
+hamming_score=0.2900658185683248
+
+INFO:root:
+new threshold: 0.30000000000000004
+INFO:root:f1=0.3744004039383994
+hamming_score=0.27138513069590764
+
+INFO:root:
+new threshold: 0.4
+INFO:root:f1=0.31099711445976275
+hamming_score=0.230670760131913
+
+INFO:root:
+new threshold: 0.5
+INFO:root:f1=0.2369608728071897
+hamming_score=0.17879250982007874
+
+INFO:root:
+new threshold: 0.6
+INFO:root:f1=0.1514700251031783
+hamming_score=0.11663542760033987
+
+INFO:root:Start train at 2021-09-17 20:32:58.543704
+INFO:root:End train at 2021-09-17 20:33:17.985692
+INFO:root:classifier: sgd
+INFO:root:loss = 0.009584823481925788
+f1=0.1005109231853418
+hamming_score=0.08686558452222612
+
+INFO:root:Start train at 2021-09-17 21:20:04.574322
+INFO:root:End train at 2021-09-17 21:22:09.470334
+INFO:root:Model saved
